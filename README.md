@@ -33,6 +33,7 @@ To replicate or modify this project, you will need the following components:
 
    - `Keypad` (for keypad)
    - 'LiquidCrystal_I2C' (for LiquidCrystal_I2C)
+   - `LiquidCrystal_I2C` (for LiquidCrystal_I2C)
 
 7. Select the appropriate Arduino board and port from the **Tools** menu.
 
