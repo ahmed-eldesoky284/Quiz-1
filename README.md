@@ -2,14 +2,6 @@
 
 ![Access Control System](https://github.com/ahmed-eldesoky284/Quiz-1/blob/main/Capture1.png)
 
-## Features
-
-- Secure access control using a combination of password and fingerprint.
-- Programmable password for easy customization.
-- Reliable fingerprint recognition using the R305 sensor.
-- Customizable access control logic and actions.
-- Arduino-compatible, allowing for easy integration with other projects.
-
 ## Requirements
 
 To replicate or modify this project, you will need the following components:
@@ -18,7 +10,7 @@ To replicate or modify this project, you will need the following components:
 - Keypad (4x4)
 - 2 LCD I2C (16,2)
 - 2WD Motor
-- mMtor Drive L293D
+- Motor Drive L293D
 
 
 ## Installation
@@ -40,6 +32,7 @@ To replicate or modify this project, you will need the following components:
 6. Make sure you have the required libraries installed. If not, install them by going to **Sketch** > **Include Library** > **Manage Libraries** and search for the following libraries:
 
    - `Keypad` (for keypad)
+   - 'LiquidCrystal_I2C'(for LCD)
 
 7. Select the appropriate Arduino board and port from the **Tools** menu.
 
