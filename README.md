@@ -1,4 +1,4 @@
-# Arduino Access Control System with Keypad and Fingerprint Sensor R305
+# Arduino 2WDRobot with Keypad and LCD I2C
 
 ![Access Control System](https://github.com/ahmed-eldesoky284/Quiz-1/blob/main/Capture1.png)
 
@@ -14,8 +14,11 @@
 
 To replicate or modify this project, you will need the following components:
 
-- Arduino board (e.g., Arduino Uno, Arduino Nano)
-- Keypad (any standard 4x4 or 3x4 keypad will work)
+- 2 Arduino Uno
+- Keypad (4x4)
+- 2 LCD I2C (16,2)
+- 2WD Motor
+- mMtor Drive L293D
 
 
 ## Installation
@@ -23,20 +26,19 @@ To replicate or modify this project, you will need the following components:
 1. Clone this repository to your local machine:
 
    ```bash
-   git clone https://github.com/ahmed-eldesoky284/Quiz3.git
+   git clone https://github.com/ahmed-eldesoky284/Quiz1.git
    ```
 
 2. Connect the Arduino board to your computer using a USB cable.
 
-3. Connect the keypad and fingerprint sensor to the Arduino board as per the circuit diagram provided in the repository.
+3. Connect the keypad and LCD and MotorDrive to the Arduino board as per the circuit diagram provided in the repository.
 
 4. Open the Arduino IDE (Integrated Development Environment) on your computer.
 
-5. In the Arduino IDE, go to **File** > **Open** and navigate to the cloned repository folder. Open the `Password-Fingerprint.ino` file.
+5. In the Arduino IDE, go to **File** > **Open** and navigate to the cloned repository folder. Open the `Quiz1.ino` file.
 
 6. Make sure you have the required libraries installed. If not, install them by going to **Sketch** > **Include Library** > **Manage Libraries** and search for the following libraries:
 
-   - `Adafruit_Fingerprint` (for fingerprint sensor)
    - `Keypad` (for keypad)
 
 7. Select the appropriate Arduino board and port from the **Tools** menu.
@@ -47,19 +49,19 @@ To replicate or modify this project, you will need the following components:
 
 ## Usage
 
-1. Power up the Arduino board using a 5V power supply.
+1. Press key 'A' to make the robot walk forward.
 
-2. The system will prompt you to enter the password using the keypad. The default password is `1345`, but you can modify it in the code.
+2. Press key 'B' to make the robot walk backward.
 
-3. After entering the password, the system will prompt you to place your finger on the fingerprint sensor.
+3. Press key 'C' to make the robot stop.
 
-4. If the entered password and fingerprint match, the system will grant access by turning on an LED or performing any other desired action. Otherwise, access will be denied.
+4. Press '*' to make the robot turn left.
 
-5. The system output will be displayed on the serial monitor, indicating whether access was granted or denied.
+5. Press '#' to make the robot turn right.
 
 ## Customization
 
-You can customize the access control logic and actions according to your requirements. In the `Password-Fingerprint.ino` file, you will find comments and instructions to guide you through the customization process.
+You can customize the access control logic and actions according to your requirements. In the `Quiz1.ino` file, you will find comments and instructions to guide you through the customization process.
 
 
 
