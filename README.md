@@ -32,7 +32,7 @@ To replicate or modify this project, you will need the following components:
 6. Make sure you have the required libraries installed. If not, install them by going to **Sketch** > **Include Library** > **Manage Libraries** and search for the following libraries:
 
    - `Keypad` (for keypad)
-   - 'LiquidCrystal_I2C'(for LCD)
+   - 'LiquidCrystal_I2C' (for LiquidCrystal_I2C)
 
 7. Select the appropriate Arduino board and port from the **Tools** menu.
 
