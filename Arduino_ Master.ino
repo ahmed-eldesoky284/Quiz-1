@@ -1,77 +1,54 @@
-#include <SoftwareSerial.h>
 #include <Keypad.h>
+#include <SoftwareSerial.h>
 #include <LiquidCrystal_I2C.h>
 LiquidCrystal_I2C lcd(38, 16, 2);
 //SoftwareSerial Serial(2,3); 
-char reading;int t_dis1=0,x;
-const int IN[] = { 4, 5, 6, 7 };
+int x=0;
+char k[4][4] = {
+  {'1', '2', '3', 'A'},
+  {'4', '5', '6', 'B'},
+  {'7', '8', '9', 'C'},
+  {'*', '0', '#', 'D'}};
+byte rpins[4] = {4, 5, 6, 7};
+byte cpins[4] = {8, 9, 10, 11};
+Keypad kay(makeKeymap(k), rpins, cpins, 4, 4);
+char myk;
+int t_dis1=0;
 
 void setup() {
-  for(int i=0;i<sizeof(IN);i++)
-  pinMode(IN[i], OUTPUT);
-  
+  Serial.begin(9600);
   lcd.init();
   lcd.backlight();
-
-  Serial.begin(9600);
- // Serial.println("mm");
 }
-
 void loop() {
-  if (Serial.available()>0) {
-    reading = Serial.read();
-    Serial.println(reading);
-    if (reading== 'A') {
+myk = kay.getKey();
+  if(myk){
+Serial.write(myk);
+  if (myk== 'A') {
       lcd.clear();
-      lcd.print("Forward");
-      digitalWrite(IN[1], HIGH);
-      digitalWrite(IN[3], HIGH);
-      digitalWrite(IN[2], 0);
-      digitalWrite(IN[0], 0);
-    } else if (reading == 'B') {
+      lcd.print("Forward");}
+     else if (myk == 'B') {
       lcd.clear();
-      lcd.print("Backward");
-      digitalWrite(IN[0], HIGH);
-      digitalWrite(IN[2], HIGH);
-      digitalWrite(IN[1], 0);
-      digitalWrite(IN[3], 0);
-    } else if (reading == 'C') {
+      lcd.print("Backward");}
+    else if (myk == 'C') {
       lcd.clear();
-      lcd.print("Stop");
-      digitalWrite(IN[3], 0);
-      digitalWrite(IN[0], 0);
-      digitalWrite(IN[1], 0);
-      digitalWrite(IN[2], 0);
-    } else if (reading == '*') {
+      lcd.print("Stop");}
+    else if (myk == '*') {
       lcd.clear();
-      lcd.print("Left");
-      digitalWrite(IN[3], HIGH);
-      digitalWrite(IN[0], 0);
-      digitalWrite(IN[1], 0);
-      digitalWrite(IN[2], 0);
-    } else if (reading == '#') {
+      lcd.print("Left");}
+     else if (myk == '#') {
       lcd.clear();
-      lcd.print("Right");
-      digitalWrite(IN[1], HIGH);
-      digitalWrite(IN[0],0);
-      digitalWrite(IN[3], 0);
-      digitalWrite(IN[2], 0);
-    }else if(reading >= '0'&& reading <='9'){ 
-      while(x==0)x= Serial.parseInt();
-      lcd.clear(); lcd.print("distance ="+String(x)+" cm");               
-      }
-    else if(reading == 'D'){x= Serial.parseInt();while(x==0)x= Serial.parseInt();
-      lcd.clear();
-      lcd.print("distance ="+String(x)+"cm");
-      digitalWrite(IN[1], HIGH);
-      digitalWrite(IN[3], HIGH);
-      digitalWrite(IN[0], 0);
-      digitalWrite(IN[2], 0);
-      delay(x);
-      digitalWrite(IN[3], 0);
-      digitalWrite(IN[0], 0);
-      digitalWrite(IN[1], 0);
-      digitalWrite(IN[2], 0);
+       lcd.print("Right");}
+  else if (myk >= '0' && myk <= '9'){
+    int t_dis = myk - '0';
+    t_dis1 = (t_dis1 * 10) + t_dis;
+     lcd.clear();
+   lcd.print("distance ="+String(t_dis1)+" cm");Serial.print(t_dis1);}
+  else if (myk == 'D') {
+      x=(t_dis1*20);lcd.clear();
+    lcd.print("distance ="+String(x)+"cm");
+     Serial.print(x);
     }
   }
-}
+}    
+
