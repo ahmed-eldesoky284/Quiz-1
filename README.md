@@ -27,8 +27,7 @@ To replicate or modify this project, you will need the following components:
 
 4. Open the Arduino IDE (Integrated Development Environment) on your computer.
 
-5. In the Arduino IDE, go to **File** > **Open** and navigate to the cloned repository folder. Open the `Quiz1.ino` file.
-
+5. In the Arduino IDE, go to **File** > **Open** and navigate to the cloned repository folder. Open the `Arduino_ Master.ino` file.Open the `Arduino_ Slave.ino` file.
 6. Make sure you have the required libraries installed. If not, install them by going to **Sketch** > **Include Library** > **Manage Libraries** and search for the following libraries:
 
    - `Keypad` (for keypad)
@@ -52,9 +51,7 @@ To replicate or modify this project, you will need the following components:
 
 5. Press '#' to make the robot turn right.
 
-## Customization
 
-You can customize the access control logic and actions according to your requirements. In the `Quiz1.ino` file, you will find comments and instructions to guide you through the customization process.
 
 
 
